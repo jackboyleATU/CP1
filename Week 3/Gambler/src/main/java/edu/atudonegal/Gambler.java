@@ -61,6 +61,7 @@ public class Gambler {
         System.out.println();
         System.out.println();
 
+        // this is changes im making for the branch test
       }
       if (pot == goal) {
         gameWins++;
