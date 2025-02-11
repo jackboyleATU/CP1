@@ -15,15 +15,30 @@ public final class Enigma {
         // 3. Return the encrypted string
 
         char temp;
+        char start = 'A';
+
+        String messageUpperCase = message.toUpperCase();
         String encryptedMessage = "";
+        String nextMessage = "";
+        char characterToAdd;
 
         //CAESAR SHIFT
-        for (int i = 0; i < message.length(); i++)
+        for (int i = 0; i < messageUpperCase.length(); i++)
         {
-            if (message.charAt(i) != ' ')
+            
+            if (messageUpperCase.charAt(i) != ' ')
             {
-                temp = message.charAt(i);
+                temp = messageUpperCase.charAt(i);
                 temp += (incrementNumber + i);
+                if(temp < 'a' || temp > ('z'))
+                {
+                    characterToAdd = (char)(((temp - start + (incrementNumber + i)) % 26) + start);
+                    encryptedMessage+=characterToAdd;
+                }
+                else
+                {
+                    encryptedMessage+=temp;
+                }
                 encryptedMessage += temp;
             }
             else
