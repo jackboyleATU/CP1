@@ -14,7 +14,25 @@ public final class Enigma {
         //  2.1 Translate the message using the rotor
         // 3. Return the encrypted string
 
-        return "Implement the encrypt method";
+        char temp;
+        String encryptedMessage = "";
+
+        //CAESAR SHIFT
+        for (int i = 0; i < message.length(); i++)
+        {
+            if (message.charAt(i) != ' ')
+            {
+                temp = message.charAt(i);
+                temp += (incrementNumber + i);
+                encryptedMessage += temp;
+            }
+            else
+            {
+                encryptedMessage += message.charAt(i);
+            }
+        }
+
+        return encryptedMessage;
     }
 
 
