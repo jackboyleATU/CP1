@@ -15,31 +15,22 @@ public final class Enigma {
         // 3. Return the encrypted string
 
         char temp;
-        char start = 'A';
 
         String messageUpperCase = message.toUpperCase();
         String encryptedMessage = "";
-        String nextMessage = "";
-        char characterToAdd;
 
         //CAESAR SHIFT
         for (int i = 0; i < messageUpperCase.length(); i++)
         {
-            
+            temp = messageUpperCase.charAt(i);
             if (messageUpperCase.charAt(i) != ' ')
             {
-                temp = messageUpperCase.charAt(i);
-                temp += (incrementNumber + i);
-                if(temp < 'a' || temp > ('z'))
+                
+                if(temp >= 'A' || temp <= ('Z'))
                 {
-                    characterToAdd = (char)(((temp - start + (incrementNumber + i)) % 26) + start);
-                    encryptedMessage+=characterToAdd;
-                }
-                else
-                {
+                    temp = (char) (((temp - 'A' + (incrementNumber + i)) % 26) + 'A');
                     encryptedMessage+=temp;
                 }
-                encryptedMessage += temp;
             }
             else
             {
@@ -47,7 +38,29 @@ public final class Enigma {
             }
         }
 
-        return encryptedMessage;
+        char[] rotorEncryptedMessage = encryptedMessage.toCharArray();
+
+        for (int i = 0; i < rotors.size(); i++)
+        {
+            String rotor = rotors.get(i);
+
+            for (int j = 0; j < rotorEncryptedMessage.length; j++)
+            {
+                temp = rotorEncryptedMessage[j];
+
+                if (temp >='A' && temp <= 'Z')
+                {
+                    int index = rotor.indexOf(temp);
+
+                    if (index != -1)
+                    {
+                        rotorEncryptedMessage[j] = (char) ('A' + index);
+                    }
+                }
+            }
+        }
+
+        return new String(rotorEncryptedMessage);
     }
 
 
