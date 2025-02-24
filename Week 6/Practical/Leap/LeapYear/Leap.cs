@@ -36,7 +36,30 @@ namespace LeapYear
         /// <exception cref="NotImplementedException"></exception>
         public static bool IsLeapYear(int year)
         {
-            //TODO Implement the IsLeapYear method
+            if ((year % 4) == 0)
+            {
+                if ((year % 100) == 0)
+                {
+                    if ((year % 400) == 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                return false;
+            }
+
+
             throw new NotImplementedException("You need to implement this function.");
         }
     }

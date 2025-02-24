@@ -35,7 +35,8 @@ public class BirdCount
     public static int[] LastWeek()
     {
         // TODO: Implement the 'LastWeek()' method
-        throw new NotImplementedException("Please implement the (static) BirdCount.LastWeek() method");
+        int[] lastWeek = [0, 2, 5, 3, 7, 8, 4];
+        return lastWeek;
     }
 
     /// <summary>
@@ -48,7 +49,7 @@ public class BirdCount
     public int Today()
     {
         // TODO: Implement the 'Today()' method
-        throw new NotImplementedException("Please implement the BirdCount.Today() method");
+        return _birdsPerDay[_birdsPerDay.Length - 1];
     }
 
     /// <summary>
@@ -59,7 +60,7 @@ public class BirdCount
     public void IncrementTodaysCount()
     {
         // TODO: Implement the 'IncrementTodaysCount()' method
-        throw new NotImplementedException("Please implement the BirdCount.IncrementTodaysCount() method");
+        _birdsPerDay[_birdsPerDay.Length - 1] += 1;
     }
 
     /// <summary>
@@ -71,7 +72,18 @@ public class BirdCount
     public bool HasDayWithoutBirds()
     {
         // TODO: Implement the 'HasDayWithoutBirds()' method
-        throw new NotImplementedException("Please implement the BirdCount.HasDayWithoutBirds() method");
+        Boolean noBirds = false;
+
+        for(int i = 0; i < _birdsPerDay.Length; i++)
+        {
+            if (_birdsPerDay[i] == 0)
+            {
+                noBirds = true; break;
+            }
+        }
+
+        return noBirds;
+
     }
 
     /// <summary>
@@ -86,7 +98,13 @@ public class BirdCount
     public int CountForFirstDays(int numberOfDays)
     {
         // TODO: Implement the 'CountForFirstDays()' method
-        throw new NotImplementedException("Please implement the BirdCount.CountForFirstDays() method");
+        int numberOfBirds = 0;
+
+        for (int i = 0; i < numberOfDays; i++)
+        {
+            numberOfBirds += _birdsPerDay[i];
+        }
+        return numberOfBirds;
 
     }
     /// <summary>
@@ -99,7 +117,17 @@ public class BirdCount
     public int BusyDays()
     {
         // TODO: Implement the 'BusyDays()' method
-        throw new NotImplementedException("Please implement the BirdCount.BusyDays() method");
+        int noOfBusyDays = 0;
+
+        for(int i = 0; i < _birdsPerDay.Length; i++)
+        {
+            if (_birdsPerDay[i] >= 5)
+            {
+                noOfBusyDays++;
+            }
+        }
+
+        return noOfBusyDays;
     }
 
 }

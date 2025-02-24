@@ -16,10 +16,13 @@ namespace LuciansLusciousLasagna
         /// oven. According to the cookbook, the expected oven time is forty minutes. 
         /// </summary>
         /// <returns>The expected time in the oven according to the recipe.</returns>
+
+        private int expectedMinutes = 40;
+
         public int ExpectedMinutesInOven()
         {
             // TODO: Implement the 'ExpectedMinutesInOven()' method
-            throw new NotImplementedException("Please implement the ExpectedMinutesInOven() method");
+            return expectedMinutes;
 
         }
         /// <summary>
@@ -34,7 +37,7 @@ namespace LuciansLusciousLasagna
         public int RemainingMinutesInOven(int durationInOven)
         {
             // TODO: Implement the 'RemainingMinutesInOven()' method
-            throw new NotImplementedException("Please implement the RemainingMinutesInOven() method");
+            
 
 
         }
