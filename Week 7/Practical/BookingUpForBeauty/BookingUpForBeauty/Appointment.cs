@@ -17,6 +17,7 @@
 
 using System.Globalization;
 using System.Text;
+using Microsoft.VisualBasic;
 
 namespace BookingUpForBeauty
 {
@@ -36,7 +37,7 @@ namespace BookingUpForBeauty
         public static DateTime Schedule(string appointmentDateDescription)
         {
             //TODO: Implement the method as described in the document comments. 
-            throw new NotImplementedException("Please implement the (static) Appointment.Schedule() method");
+            return DateTime.Parse(appointmentDateDescription);
         }
 
         /// <summary>
@@ -53,7 +54,7 @@ namespace BookingUpForBeauty
         public static bool HasPassed(DateTime appointmentDate)
         {
             //TODO: Implement the method as described in the document comments. 
-            throw new NotImplementedException("Please implement the (static) Appointment.HasPassed() method");
+            return appointmentDate < DateTime.Now;
         }
 
         /// <summary>
@@ -70,7 +71,7 @@ namespace BookingUpForBeauty
         public static bool IsAfternoonAppointment(DateTime appointmentDate)
         {
             //TODO: Implement the method as described in the document comments. 
-            throw new NotImplementedException("Please implement the (static) Appointment.IsAfternoonAppointment() method");
+            return appointmentDate.Hour < 18 && appointmentDate.Hour >= 12;
         }
 
         /// <summary>
@@ -84,8 +85,10 @@ namespace BookingUpForBeauty
         /// <exception cref="NotImplementedException"></exception>
         public static string Description(DateTime appointmentDate)
         {
-            //TODO: Implement the method as described in the document comments. 
-            throw new NotImplementedException("Please implement the (static) Appointment.Description() method");
+            //TODO: Implement the method as described in the document comments.
+            string dateString = appointmentDate.ToString("dd/MM/yyyy h:mm:ss tt");
+            return "You have an appointment on " + dateString + ".";
+            //return "You have an appointment on 25/07/2019 1:45:00 PM.";
             // See: https://learn.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings
         }
 

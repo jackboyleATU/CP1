@@ -5,7 +5,7 @@ using BookingUpForBeauty;
 Console.WriteLine("Hello, World!");
 
 // Set the culutre info for dates to Irish
-var enIeCulture = new CultureInfo("en-IE");
+var enIeCulture = new CultureInfo("en-US");
 Thread.CurrentThread.CurrentCulture = enIeCulture;
 Thread.CurrentThread.CurrentUICulture = enIeCulture;
 
@@ -15,3 +15,7 @@ Thread.CurrentThread.CurrentUICulture = enIeCulture;
 
 // When constructing strings from multiple elements you should use the StringBuilder class
 // https://learn.microsoft.com/en-us/dotnet/api/system.text.stringbuilder
+
+
+
+Console.WriteLine(new DateTime(2019, 07, 25, 13, 45, 0).ToString("dd/MM/yyyy h:mm:ss tt"));
